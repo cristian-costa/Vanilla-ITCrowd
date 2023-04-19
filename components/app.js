@@ -83,6 +83,25 @@ async function searchGame(inputSearch) {
   }
 }
 
+const images = [
+  "../assets/witcher.jpg",
+  "../assets/gta.jpg",
+  "../assets/hollow.jpg",
+  "../assets/lol.jpg",
+  "../assets/mgs.jpeg",
+  "../assets/minecraft.jpg",
+  "../assets/zomboid.jpg",
+];
+
+function changeBackgroundImage() {
+  const imageElements = document.querySelectorAll(".image-game");
+
+  imageElements.forEach((element) => {
+    const imagePath = element.getAttribute("data-image-src");
+    element.style.backgroundImage = `url(${imagePath})`;
+  });
+}
+
 function renderResult(result, searchingGame) {
   while (resultDiv.firstChild) {
     resultDiv.removeChild(resultDiv.firstChild);
@@ -119,23 +138,36 @@ function renderResult(result, searchingGame) {
         },
       } = game;
 
+      const randomIndex = Math.floor(Math.random() * images.length);
+
       resultDiv.innerHTML += `
-                    <section class="result-container">
-                        <div class="custom-bg-white">
-                            <div class="p-4">
-                            <p class="bold-font text-align-center"> ${name}  </p>
-                                <p class="bold-font">  <span class="light-font"> Critic Score: </span> ${topCriticScore} </p>
-                                <p class="bold-font"> <span class="light-font"> Tier: </span> ${tier}  </p>
-                                <a 
-                                    class="custom-button"
-                                    href="${og}" target="_blank" rel="noopener noreferrer" 
-                                >
-                                    See more
-                                </a>
-                            </div>
-                        </div>
-                    </section>
-                `;
+      <section class="result-container">
+      <div class="custom-bg-white">
+        <div class="p-4">
+          <p class="bold-font text-align-center game-name"> ${name} </p>
+          <div class="image-container">
+            <picture>
+              <img class="image-game" src="${
+                images[randomIndex]
+              }" alt="${name}" />
+            </picture>
+          </div>
+          <p class="bold-font">  <span class="light-font"> Critic Score: </span> ${topCriticScore.toFixed(
+            2
+          )} </p>
+          <p class="bold-font"> <span class="light-font"> Tier: </span> ${tier}  </p>
+          <a 
+              class="custom-button"
+              href="${og}" target="_blank" rel="noopener noreferrer" 
+          >
+              See more
+          </a>
+        </div>
+      </div>
+    </section>
+    
+      `;
     });
+    changeBackgroundImage();
   }
 }
