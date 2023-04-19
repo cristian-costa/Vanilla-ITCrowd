@@ -8,28 +8,27 @@
     <title>Search for games</title>
   </head>
   <body>
-    <!--header, main (en el main puedo tener sections, asides...), footer-->
     <header>
-      <h1 class="mainTitle">Search Games !</h1>
+      <h1 class="mainTitle">Search your Games !</h1>
     </header>
 
-    <div class="buscador">
-      <form id="formulario" class="">
-        <div>
-          <label class="label">Search</label>
-          <input
-            type="text"
-            class="input-text"
-            placeholder="..."
-            id="input-search"
-          />
+    <main>
+      <div class="buscador">
+        <form id="formulario" class="">
+          <div>
+            <input
+              type="text"
+              class="input-text"
+              placeholder="Type a game"
+              id="input-search"
+            />
 
-          <input type="submit" value="Search" class="input-submit" />
-        </div>
-      </form>
-    </div>
-
-    <main id="resultDiv" class="container"></main>
+            <input type="submit" value="Search" class="input-submit" />
+          </div>
+        </form>
+      </div>
+      <section id="resultDiv" class="container"></section>
+    </main>
 
     <footer>
       <p>Footer !</p>
