@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/normalize.css" />
+    <title>Search for games</title>
+  </head>
+  <body>
+    <!--header, main (en el main puedo tener sections, asides...), footer-->
+    <header>
+      <h1 class="mainTitle">Search Games !</h1>
+    </header>
+
+    <div class="buscador">
+      <form id="formulario" class="">
+        <div>
+          <label class="label">Search</label>
+          <input
+            type="text"
+            class="input-text"
+            placeholder="..."
+            id="input-search"
+          />
+
+          <input type="submit" value="Search" class="input-submit" />
+        </div>
+      </form>
+    </div>
+
+    <main id="resultDiv" class="container"></main>
+
+    <footer>
+      <p>Footer !</p>
+    </footer>
+
+    <script src="components/app.js"></script>
+  </body>
+</html>
